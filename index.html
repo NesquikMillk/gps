@@ -14,7 +14,7 @@
       embedded
       vr-mode-ui="enabled: false;"
       renderer="logarithmicDepthBuffer: true;"
-      arjs="sourceType: webcam; trackingMethod: gps; debugUIEnabled: false;">
+      arjs="sourceType: webcam; trackingMethod: gps; debugUIEnabled: true;">
 
       <!-- GPS-entity for the image -->
       <a-image 
@@ -26,7 +26,6 @@
 
       <!-- Camera entity with GPS tracking -->
       <a-entity gps-camera="gpsMinDistance: 0; gpsMaxDistance: 1000;">
-        <a-entity position="0 0 -5" rotation-reader></a-entity>
       </a-entity>
     </a-scene>
   </body>
