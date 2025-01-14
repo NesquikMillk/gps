@@ -1,32 +1,44 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <title>AR с GPS-маркером и изображением</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+      <html lang="ru">
+        <head>
+          <title>AR с GPS-маркером и изображением</title>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
-  </head>
+          <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+          <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        </head>
 
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      embedded
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      arjs="sourceType: webcam; trackingMethod: gps; debugUIEnabled: true;">
+        <body style="margin: 0; overflow: hidden;">
+          <a-scene
+            embedded
+            vr-mode-ui="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="sourceType: webcam; trackingMethod: best;"
+          >
+            <a-entity
+              gps-entity-place="latitude: 56.889392; longitude: 60.636168;"
+              >
+            <!--   <a-sound 
+                src="монеточка-Пост-пост.mp3" 
+                autoplay="true">
+              </a-sound>
+              </a-entity> -->
+      
+      <!--  <a-video
+                src="barash.MP4"
+              scale=" 0 0 -50">
+              ></a-video>
+            </a-entity>-->
 
-      <!-- GPS-entity for the image -->
+     GPS-маркер картинка
       <a-image 
-        gps-entity-place="latitude: 56.889392; longitude: 60.636168;" 
-        src="кот с комп.jpg"
-        look-at="[gps-camera]"
-        scale="5 5 5">
-      </a-image>
+            src="кот с комп.jpg" 
+            autoplay="true"
+            emitevents="true">
+          </a-image> 
 
-      <!-- Camera entity with GPS tracking -->
-      <a-entity gps-camera="gpsMinDistance: 0; gpsMaxDistance: 1000;">
-      </a-entity>
-    </a-scene>
-  </body>
-</html>
+             <a-entity camera gps-camera rotation-reader></a-entity>
+                </a-scene>
+              </body>
+            </html>
