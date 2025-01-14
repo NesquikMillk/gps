@@ -1,62 +1,45 @@
 <!DOCTYPE html>
+      <html lang="ru">
+        <head>
+          <title>AR с GPS-маркером и изображением</title>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<html>
-  <head>
-    <title>Gesture Interactions - A-Frame & AR.js</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="styles.css">
+          <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+          <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        </head>
 
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="gesture-detector.js"></script>
-    <script src="gesture-handler.js"></script>
-  </head>
-
- <body>
-    <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
-      <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="типичная_горничная__оригинальная_работа.glb"
-        >
-        </a-asset-item>
-      </a-assets>
+        <body style="margin: 0; overflow: hidden;">
+          <a-scene
+            embedded
+            vr-mode-ui="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="sourceType: webcam; trackingMethod: best;"
+          >
+            <a-entity
+              gps-entity-place="latitude: 56.886833; longitude: 60.587377;"
+              >
+              <a-sound 
+                src="duck-called-apple-phone-comes-with-sound-game-sound-alert.mp3" 
+                autoplay="true">
+              </a-sound>
+              </a-entity>
       
-<a-marker
-    type="pattern"
-    url="pattern-white flowers.patt"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
->
-    <a-image
-        src="#myImage"
-        position="0 0 0"
-        scale="1 1 1"
-        class="clickable"
-        gesture-handler
-    ></a-image>
-</a-marker>
-        <a-entity
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0 0 0"
-          scale="5 5 5"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
-</html>
+      <!-- GPS видео 
+      < <a-video
+                src="somnenie-okey-tinkov.mp4" 
+                look-at="[gps-camera]"
+                scale=" 0 0 -50"
+              ></a-video>
+            </a-entity>-->
+
+      <!-- GPS-маркер картинка
+      <a-image 
+            src="your-audio-url.mp3" 
+            autoplay="true">
+          </a-sound> -->
+
+             <a-entity camera gps-camera rotation-reader></a-entity>
+                </a-scene>
+              </body>
+            </html>
